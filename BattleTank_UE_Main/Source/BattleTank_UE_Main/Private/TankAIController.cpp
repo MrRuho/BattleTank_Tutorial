@@ -1,5 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+#include "Engine/World.h"
 #include "TankAIController.h"
 
 
@@ -22,7 +23,16 @@ void ATankAIController::BeginPlay()
 }
 
 
-ATank* ATankAIController::GetControlledTank() const 
+void ATankAIController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	if (GetPlayerTank()) 
+	{
+		GetControlledTank()->AimAt(GetPlayerTank()->GetActorLocation()); //Note 138: Enemy tanks get info to player Fvector location on every frame.
+	}
+}
+
+ATank* ATankAIController::GetControlledTank() const
 {
 	return Cast<ATank>(GetPawn());
 }
