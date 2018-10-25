@@ -1,7 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "Kismet/GameplayStatics.h"
 #include "TankAimingComponent.h"
+#include "Components/StaticMeshComponent.h"
+#include "Kismet/GameplayStatics.h"
+
 
 
 // Sets default values for this component's properties
@@ -22,10 +24,7 @@ void UTankAimingComponent::SetBarrelReference(UStaticMeshComponent * BarrelToSet
 
 void UTankAimingComponent::AimAt(FVector OutHitLocation, float LaunchSpeed)
 {
-<<<<<<< HEAD
 
-=======
->>>>>>> parent of a013852... Revert "Tahtays ja ammuksen lahto suunta asennettu."
 	if (!Barrel) { return;}
 
 	FVector OutLaunchVelocity;
@@ -47,13 +46,11 @@ void UTankAimingComponent::AimAt(FVector OutHitLocation, float LaunchSpeed)
 		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
 		MoveBarrelTowards(AimDirection);
 	}
-<<<<<<< HEAD
+
 
 	
 	UE_LOG(LogTemp, Warning, TEXT("Firing at %F"), LaunchSpeed);
 
-=======
->>>>>>> parent of a013852... Revert "Tahtays ja ammuksen lahto suunta asennettu."
 }
 
 void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
